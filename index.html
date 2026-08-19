@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warren S. — projects</title>
+<meta name="description" content="Infrastructure, a full-stack app, and an AI-agent privacy tool — built and shipped during a career transition, with visible human judgment behind the AI-assisted work.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Warren S. — <a href="https://github.com/nunchimangchi-dev" target="_blank" rel="noopener">github.com/nunchimangchi-dev</a></p>
+    <h1>Building real, working software — in the open, during a career transition.</h1>
+    <p class="hero-sub">
+      Three public projects below: a Go-based AI agent system, a full-stack
+      Next.js app, and the dev-environment infrastructure both were built
+      on. All actively developed, all with real commit history, CI, and
+      working code — not one-off demos.
+    </p>
+  </header>
+
+  <section class="projects">
+
+    <article class="project-card">
+      <div class="project-head">
+        <h2>DATABROKER.deep</h2>
+        <a class="project-link" href="https://github.com/nunchimangchi-dev/DATABROKER.deep" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      </div>
+      <p class="project-tag">Go &middot; AI agent orchestration &middot; privacy automation</p>
+      <p>
+        An AI-driven data broker opt-out orchestrator. It seeds a queue of
+        85 real U.S. data brokers, walks each one through an opt-out
+        strategy suited to that site, and tracks progress on a real-time
+        dashboard — built as a genuine attempt at solving a real privacy
+        problem with an AI agent doing the meaningful decision-making, not
+        a script with an LLM bolted on.
+      </p>
+      <p>
+        Strategy 1 (a TruthFinder affiliate cascade covering 7 broker
+        properties through one form submission) is fully implemented and
+        tested against the real site — Claude's vision capability validates
+        the outcome from a post-submit screenshot. Five more strategies are
+        scoped and registry-seeded but not yet built; the README says so
+        directly rather than overselling it.
+      </p>
+    </article>
+
+    <article class="project-card">
+      <div class="project-head">
+        <h2>droppdd</h2>
+        <a class="project-link" href="https://github.com/nunchimangchi-dev/droppdd" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      </div>
+      <p class="project-tag">Next.js &middot; TypeScript &middot; Prisma &middot; Google OAuth</p>
+      <p>
+        A fitness/coaching app — workouts, meal tracking, progress history,
+        and a "wagers" feature (commitment contracts against your own
+        goals, with a built-in safety guardrail capping how aggressive a
+        weight-loss target can be). Real Google OAuth with an allowlist
+        gate, a real Prisma/SQLite data layer, CI that actually runs on
+        every PR, and a production deployment reachable over a private
+        tailnet.
+      </p>
+      <p>
+        It also exists as the validation case for the tooling in
+        <a href="https://github.com/nunchimangchi-dev/skyrise" target="_blank" rel="noopener">skyrise</a>
+        — proving the dev environment on something real instead of taking
+        it on faith.
+      </p>
+    </article>
+
+    <article class="project-card">
+      <div class="project-head">
+        <h2>skyrise</h2>
+        <a class="project-link" href="https://github.com/nunchimangchi-dev/skyrise" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      </div>
+      <p class="project-tag">chezmoi &middot; fish &middot; tmux &middot; infrastructure</p>
+      <p>
+        A repeatable bootstrap for a dev environment — git/GitHub identity,
+        tmux, fish shell, Bitwarden, and chezmoi-managed dotfiles — applied
+        identically across a Linux server and a MacBook from one source of
+        truth. Includes a public build-log dashboard tracking what's
+        actually done versus still pending, updated as each piece lands.
+      </p>
+      <p>
+        Not a toy dotfiles repo: it's the actual infrastructure the other
+        two projects are built and deployed on.
+      </p>
+    </article>
+
+  </section>
+
+  <section class="ai-section">
+    <h2>How these get built</h2>
+    <p>
+      All three projects are built with Claude Code doing a real share of
+      the implementation work, under a consistent process: plan the
+      approach and get it reviewed before writing code, build it, then
+      verify it for real — run it, click through it, check the database
+      directly — rather than trusting a clean build as proof it works.
+    </p>
+    <p>
+      A concrete example: adding droppdd's wagers feature surfaced a real
+      bug in the existing data model — the tables tracking weight and
+      workout streaks had no per-user scoping at all, a latent issue
+      invisible until a second feature needed to read that data correctly.
+      Fixing it meant a hand-written SQL migration to safely backfill
+      existing data before making the column required, plus a new
+      session-based auth gate on a page that didn't have one before. That's
+      the kind of thing a build has to actually get reviewed to catch — not
+      something a prompt gets right on the first pass.
+    </p>
+    <p>
+      There's also a private tool, not linked here, built the same way, to
+      manage and track this job search itself.
+    </p>
+  </section>
+
+  <footer class="site-footer">
+    <p>Three repos. Real commit history, real CI, real code — <a href="https://github.com/nunchimangchi-dev" target="_blank" rel="noopener">github.com/nunchimangchi-dev</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
