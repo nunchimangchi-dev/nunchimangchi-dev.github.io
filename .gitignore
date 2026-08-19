@@ -1,0 +1,6 @@
+# env files (never commit secrets)
+.env*
+.gemini/
+
+# misc
+.DS_Store
