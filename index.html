@@ -30,20 +30,26 @@
       </div>
       <p class="project-tag">Go &middot; AI agent orchestration &middot; privacy automation</p>
       <p>
-        An AI-driven data broker opt-out orchestrator. It seeds a queue of
-        85 real U.S. data brokers, walks each one through an opt-out
-        strategy suited to that site, and tracks progress on a real-time
-        dashboard — built as a genuine attempt at solving a real privacy
-        problem with an AI agent doing the meaningful decision-making, not
-        a script with an LLM bolted on.
+        <span class="field-label">What it does:</span> An AI-driven data
+        broker opt-out orchestrator. It seeds a queue of 85 real U.S. data
+        brokers, walks each one through an opt-out strategy suited to that
+        site, and tracks progress on a real-time dashboard — built as a
+        genuine attempt at solving a real privacy problem with an AI agent
+        doing the meaningful decision-making, not a script with an LLM
+        bolted on.
       </p>
       <p>
-        Strategy 1 (a TruthFinder affiliate cascade covering 7 broker
-        properties through one form submission) is fully implemented and
-        tested against the real site — Claude's vision capability validates
-        the outcome from a post-submit screenshot. Five more strategies are
-        scoped and registry-seeded but not yet built; the README says so
-        directly rather than overselling it.
+        <span class="field-label">The real decision:</span> Strategy 1 (a
+        TruthFinder affiliate cascade covering 7 broker properties through
+        one form submission) shipped first on purpose — highest coverage
+        for the effort, and a way to validate the whole pattern (Claude's
+        vision capability confirming the opt-out from a post-submit
+        screenshot) before committing to the other five.
+      </p>
+      <p>
+        <span class="field-label">Current state:</span> 1 of 6 strategies
+        built and tested against the real site; the rest are scoped and
+        registry-seeded, not started — the README says so directly.
       </p>
     </article>
 
@@ -54,19 +60,28 @@
       </div>
       <p class="project-tag">Next.js &middot; TypeScript &middot; Prisma &middot; Google OAuth</p>
       <p>
-        A fitness/coaching app — workouts, meal tracking, progress history,
-        and a "wagers" feature (commitment contracts against your own
-        goals, with a built-in safety guardrail capping how aggressive a
-        weight-loss target can be). Real Google OAuth with an allowlist
-        gate, a real Prisma/SQLite data layer, CI that actually runs on
-        every PR, and a production deployment reachable over a private
-        tailnet.
+        <span class="field-label">What it does:</span> A fitness/coaching
+        app — workouts, meal tracking, progress history, and a "wagers"
+        feature (commitment contracts against your own goals, with a
+        built-in safety guardrail capping how aggressive a weight-loss
+        target can be). Next.js specifically because it was the fastest
+        path to something usable on a phone browser, not a default choice.
       </p>
       <p>
-        It also exists as the validation case for the tooling in
+        <span class="field-label">The real decision:</span> Building the
+        wagers feature surfaced a real bug — the tables tracking weight and
+        streaks had no per-user scoping at all, invisible until a feature
+        needed to read that data correctly. Fixing it meant a hand-written
+        SQL migration to safely backfill existing data before making the
+        column required, plus a new auth gate on a page that didn't have
+        one before.
+      </p>
+      <p>
+        <span class="field-label">Current state:</span> Real Google OAuth
+        with an allowlist gate, CI on every PR, production deployment over
+        a private tailnet. Also the validation case for
         <a href="https://github.com/nunchimangchi-dev/skyrise" target="_blank" rel="noopener">skyrise</a>
-        — proving the dev environment on something real instead of taking
-        it on faith.
+        — proving the dev environment on something real.
       </p>
     </article>
 
@@ -77,15 +92,25 @@
       </div>
       <p class="project-tag">chezmoi &middot; fish &middot; tmux &middot; infrastructure</p>
       <p>
-        A repeatable bootstrap for a dev environment — git/GitHub identity,
-        tmux, fish shell, Bitwarden, and chezmoi-managed dotfiles — applied
-        identically across a Linux server and a MacBook from one source of
-        truth. Includes a public build-log dashboard tracking what's
-        actually done versus still pending, updated as each piece lands.
+        <span class="field-label">What it does:</span> A repeatable
+        bootstrap for a dev environment — git/GitHub identity, tmux, fish
+        shell, Bitwarden, and chezmoi-managed dotfiles — applied identically
+        across a Linux server and a MacBook from one source of truth.
       </p>
       <p>
-        Not a toy dotfiles repo: it's the actual infrastructure the other
-        two projects are built and deployed on.
+        <span class="field-label">The real decision:</span> chezmoi
+        specifically because it reconciles real Linux/macOS differences
+        (paths, package managers) from one source of truth, rather than
+        maintaining two configs. That choice paid off directly: the shared
+        fish config used to silently depend on a Linux-only package,
+        invisible until the second host actually needed it — caught and
+        fixed before it caused a real problem, not after.
+      </p>
+      <p>
+        <span class="field-label">Current state:</span> Both hosts live on
+        the same config. Not a toy dotfiles repo — it's the actual
+        infrastructure the other two projects are built and deployed on,
+        with a public build-log dashboard tracking what's done vs. pending.
       </p>
     </article>
 
@@ -95,21 +120,19 @@
     <h2>How these get built</h2>
     <p>
       All three projects are built with Claude Code doing a real share of
-      the implementation work, under a consistent process: plan the
-      approach and get it reviewed before writing code, build it, then
-      verify it for real — run it, click through it, check the database
+      the implementation work. My part is scoping the actual approach and
+      reviewing it before code gets written, then verifying the result for
+      real — running it, clicking through it, checking the database
       directly — rather than trusting a clean build as proof it works.
     </p>
     <p>
-      A concrete example: adding droppdd's wagers feature surfaced a real
-      bug in the existing data model — the tables tracking weight and
-      workout streaks had no per-user scoping at all, a latent issue
-      invisible until a second feature needed to read that data correctly.
-      Fixing it meant a hand-written SQL migration to safely backfill
-      existing data before making the column required, plus a new
-      session-based auth gate on a page that didn't have one before. That's
-      the kind of thing a build has to actually get reviewed to catch — not
-      something a prompt gets right on the first pass.
+      The wagers data-scoping bug on droppdd (see above) is a fair example
+      of why that verification step matters: a prompt asked for a feature,
+      not a schema audit, and the tables it needed to read turned out to be
+      broken in a way that only showed up once you actually tried to use
+      them correctly. The tools generate code quickly — catching what's
+      actually wrong with it, and making the calls on data model and
+      security tradeoffs, is the part that doesn't get automated away.
     </p>
     <p>
       There's also a private tool, not linked here, built the same way, to
