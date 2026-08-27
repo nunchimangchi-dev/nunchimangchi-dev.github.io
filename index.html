@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Warren S. — projects</title>
-<meta name="description" content="Infrastructure, a full-stack app, and an AI-agent privacy tool — real, shipped work with visible human judgment behind the AI-assisted process.">
+<meta name="description" content="A full-stack app in active beta, an AI-agent privacy tool, and the self-hosted infrastructure both run on — real, shipped work with visible human judgment behind the AI-assisted process.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,10 +14,10 @@
     <p class="eyebrow">Warren S. — <a href="https://github.com/nunchimangchi-dev" target="_blank" rel="noopener">github.com/nunchimangchi-dev</a></p>
     <h1>Building real, working software — in the open.</h1>
     <p class="hero-sub">
-      Three public projects below: a Go-based AI agent system, a full-stack
-      Next.js app, and the dev-environment infrastructure both were built
-      on. All actively developed, all with real commit history, CI, and
-      working code — not one-off demos.
+      Three public projects below: a full-stack Next.js app in an active
+      beta, a Go-based AI agent system, and the self-hosted infrastructure
+      both run on. All actively developed, all with real commit history,
+      CI, and working code — not one-off demos.
     </p>
   </header>
 
@@ -25,8 +25,47 @@
 
     <article class="project-card">
       <div class="project-head">
-        <h2>DATABROKER.deep</h2>
-        <a class="project-link" href="https://github.com/nunchimangchi-dev/DATABROKER.deep" target="_blank" rel="noopener">View on GitHub <span class="arrow">&rarr;</span></a>
+        <h2>droppdd</h2>
+        <a class="project-link" href="https://github.com/nunchimangchi-dev/droppdd" target="_blank" rel="noopener">View on GitHub <span class="arrow">&rarr;</span></a>
+      </div>
+      <p class="project-tag">Next.js &middot; TypeScript &middot; Prisma &middot; Google OAuth &middot; Gemini AI</p>
+      <p>
+        <span class="field-label">What it does:</span> A live, invite-only
+        beta fitness accountability app for keto/OMAD training: guided
+        workouts, AI-generated meal plans (Gemini, with the model's output
+        treated as untrusted input and validated the same as any client
+        form data), daily check-ins, peer-to-peer wager challenges with
+        real stakes, and a leaderboard that only ever shows relative
+        progress — never a user's raw weight.
+      </p>
+      <p>
+        <span class="field-label">The real decision:</span> A systematic,
+        persona-driven audit — walking the live app end-to-end as a cold
+        first-time user, one surface at a time — surfaced a genuinely
+        serious latent bug: the streak and weight-progress tracking had
+        silently never worked past a user's first day, invisible until
+        someone asked the obvious question a feature prompt hadn't:
+        "how would a user actually update their weight?" Fixed with a real
+        daily check-in flow, after confirming the product definition of a
+        "streak" first rather than guessing at it.
+      </p>
+      <p>
+        <span class="field-label">Current state:</span> Live in an active
+        invite-only beta with real outside users. Required unique
+        usernames, peer wagers, a leaderboard, and a full admin panel —
+        including a GDPR/CCPA-style data export &amp; deletion flow built
+        specifically to back a real, authored Privacy Policy. Runs on its
+        own network-isolated host behind a Cloudflare Tunnel with zero
+        inbound ports opened on the network. Also the validation case for
+        <a href="https://github.com/nunchimangchi-dev/skyrise" target="_blank" rel="noopener">skyrise</a>
+        — proving the dev environment and hosting pattern on something real.
+      </p>
+    </article>
+
+    <article class="project-card">
+      <div class="project-head">
+        <h2>unbrokerrdd</h2>
+        <a class="project-link" href="https://github.com/nunchimangchi-dev/unbrokerrdd" target="_blank" rel="noopener">View on GitHub <span class="arrow">&rarr;</span></a>
       </div>
       <p class="project-tag">Go &middot; AI agent orchestration &middot; privacy automation</p>
       <p>
@@ -47,41 +86,14 @@
         screenshot) before committing to the other five.
       </p>
       <p>
-        <span class="field-label">Current state:</span> 1 of 6 strategies
-        built and tested against the real site; the rest are scoped and
-        registry-seeded, not started — the README says so directly.
-      </p>
-    </article>
-
-    <article class="project-card">
-      <div class="project-head">
-        <h2>droppdd</h2>
-        <a class="project-link" href="https://github.com/nunchimangchi-dev/droppdd" target="_blank" rel="noopener">View on GitHub <span class="arrow">&rarr;</span></a>
-      </div>
-      <p class="project-tag">Next.js &middot; TypeScript &middot; Prisma &middot; Google OAuth</p>
-      <p>
-        <span class="field-label">What it does:</span> A fitness/coaching
-        app — workouts, meal tracking, progress history, and a "wagers"
-        feature (commitment contracts against your own goals, with a
-        built-in safety guardrail capping how aggressive a weight-loss
-        target can be). Next.js specifically because it was the fastest
-        path to something usable on a phone browser, not a default choice.
-      </p>
-      <p>
-        <span class="field-label">The real decision:</span> Building the
-        wagers feature surfaced a real bug — the tables tracking weight and
-        streaks had no per-user scoping at all, invisible until a feature
-        needed to read that data correctly. Fixing it meant a hand-written
-        SQL migration to safely backfill existing data before making the
-        column required, plus a new auth gate on a page that didn't have
-        one before.
-      </p>
-      <p>
-        <span class="field-label">Current state:</span> Real Google OAuth
-        with an allowlist gate, CI on every PR, production deployment over
-        a private tailnet. Also the validation case for
-        <a href="https://github.com/nunchimangchi-dev/skyrise" target="_blank" rel="noopener">skyrise</a>
-        — proving the dev environment on something real.
+        <span class="field-label">Current state:</span> 1 of 6 opt-out
+        strategies built and tested against the real site; the rest are
+        scoped and registry-seeded, not started — the README says so
+        directly. The dashboard itself went further: a full visual
+        redesign, real public deployment on its own isolated host behind
+        Cloudflare Access, and an admin panel (viewer/admin roles, PII
+        profile management, run control) built on Access's own identity
+        rather than a second login system.
       </p>
     </article>
 
@@ -90,12 +102,14 @@
         <h2>skyrise</h2>
         <a class="project-link" href="https://github.com/nunchimangchi-dev/skyrise" target="_blank" rel="noopener">View on GitHub <span class="arrow">&rarr;</span></a>
       </div>
-      <p class="project-tag">chezmoi &middot; fish &middot; tmux &middot; infrastructure</p>
+      <p class="project-tag">chezmoi &middot; fish &middot; tmux &middot; Proxmox &middot; Cloudflare Tunnel</p>
       <p>
-        <span class="field-label">What it does:</span> A repeatable
-        bootstrap for a dev environment — git/GitHub identity, tmux, fish
-        shell, Bitwarden, and chezmoi-managed dotfiles — applied identically
-        across a Linux server and a MacBook from one source of truth.
+        <span class="field-label">What it does:</span> Started as a
+        repeatable dev-environment bootstrap — git/GitHub identity, tmux,
+        fish shell, Bitwarden, chezmoi-managed dotfiles — applied
+        identically across a Linux server and a MacBook from one source of
+        truth. Has since grown into a real self-hosted hosting platform on
+        top of that same foundation.
       </p>
       <p>
         <span class="field-label">The real decision:</span> chezmoi
@@ -107,10 +121,13 @@
         fixed before it caused a real problem, not after.
       </p>
       <p>
-        <span class="field-label">Current state:</span> Both hosts live on
-        the same config. Not a toy dotfiles repo — it's the actual
-        infrastructure the other two projects are built and deployed on,
-        with a public build-log dashboard tracking what's done vs. pending.
+        <span class="field-label">Current state:</span> A Proxmox
+        hypervisor behind a hardware firewall, with every public-facing
+        service on its own network-isolated host, exposed only through a
+        Cloudflare Tunnel — zero inbound ports opened on the home network.
+        Not a toy dotfiles repo — it's the actual infrastructure droppdd
+        and unbrokerrdd are built and deployed on, tracked on a public
+        build-log dashboard showing what's done vs. pending.
       </p>
     </article>
 
@@ -126,13 +143,14 @@
       directly — rather than trusting a clean build as proof it works.
     </p>
     <p>
-      The wagers data-scoping bug on droppdd (see above) is a fair example
-      of why that verification step matters: a prompt asked for a feature,
-      not a schema audit, and the tables it needed to read turned out to be
-      broken in a way that only showed up once you actually tried to use
-      them correctly. The tools generate code quickly — catching what's
-      actually wrong with it, and making the calls on data model and
-      security tradeoffs, is the part that doesn't get automated away.
+      droppdd's streak-tracking bug (see above) is a fair example of why
+      that verification step matters: a feature prompt asked for a wager
+      system, not a schema audit, and the data it needed to read turned
+      out to be broken in a way that only showed up once someone actually
+      asked how a real user would use it day-to-day. The tools generate
+      code quickly — catching what's actually wrong with it, and making
+      the calls on data model, security, and product tradeoffs, is the
+      part that doesn't get automated away.
     </p>
     <p>
       There's also a private tool, not linked here, built the same way, to
