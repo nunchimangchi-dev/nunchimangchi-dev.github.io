@@ -48,7 +48,9 @@
       <p>
         <span class="field-label">Current state:</span> First strategy live
         and tested against the real site. The other five are scoped and
-        registry-seeded, not started, and the README says so directly.
+        registry-seeded, not started, and the README says so directly. The
+        dashboard sits behind Cloudflare Access identity rather than a
+        second login, gating who can run a batch versus only review one.
         Built and run solo. Currently exploring product-market fit.
       </p>
     </article>
@@ -79,8 +81,9 @@
       <p>
         <span class="field-label">Current state:</span> Real Google OAuth
         with an allowlist gate, CI on every PR, production deployment behind
-        the Cloudflare Tunnel with a separate staging environment. Actively
-        developed.
+        the Cloudflare Tunnel with a separate staging environment. A
+        GDPR/CCPA-style data export and deletion flow backs an authored
+        Privacy Policy. Actively developed.
       </p>
     </article>
 
