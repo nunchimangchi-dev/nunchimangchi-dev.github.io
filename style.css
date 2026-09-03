@@ -134,6 +134,17 @@ h1 {
   transition: var(--transition-smooth);
 }
 
+/* Supporting project: present but visibly secondary to the two above it */
+.project-card.supporting {
+  background: transparent;
+  box-shadow: none;
+  padding: 22px 32px;
+  opacity: 0.78;
+}
+.project-card.supporting .project-head h2 {
+  font-size: 0.95em;
+}
+
 /* Hover/Focus card micro-interactions */
 .project-card:hover {
   transform: translateY(-2px);
