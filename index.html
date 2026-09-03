@@ -108,26 +108,18 @@
   </section>
 
   <section class="ai-section">
-    <h2>How these get built</h2>
+    <h2>How I work</h2>
     <p>
-      These projects are built with Claude Code doing a real share of the
-      implementation work. My part is scoping the actual approach and
-      reviewing it before code gets written, then verifying the result for
-      real, running it, clicking through it, checking the database
-      directly, rather than trusting a clean build as proof it works.
+      I scope the approach and the data model, review before code gets
+      written, and verify after: run it, click through it, read the
+      database directly. A green build is not proof it works.
     </p>
     <p>
-      The wagers data-scoping bug on droppdd (see above) is a fair example
-      of why that verification step matters: a prompt asked for a feature,
-      not a schema audit, and the tables it needed to read turned out to be
-      broken in a way that only showed up once you actually tried to use
-      them correctly. The tools generate code quickly. Catching what is
-      actually wrong with it, and making the calls on data model and
-      security tradeoffs, is the part that does not get automated away.
-    </p>
-    <p>
-      There is also a private tool, not linked here, built the same way, to
-      manage and track this job search itself.
+      The wagers data-scoping bug on droppdd (above) is why. It only
+      surfaced when the tables were used the way they were meant to be.
+      Code is cheap to produce now. The judgment about what's actually
+      correct, and the calls on data-model and security tradeoffs, are the
+      work.
     </p>
   </section>
 
