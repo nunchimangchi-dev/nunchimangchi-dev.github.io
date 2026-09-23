@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warren S. &middot; projects</title>
+<meta name="description" content="A privacy automation platform, a live full-stack app run with full infrastructure ownership, and the dev environment they are built on. Real, shipped work with visible human judgment behind the AI-assisted process.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nunchimangchi.com/">
+<meta property="og:title" content="Building real, working software, in the open.">
+<meta property="og:description" content="A privacy-automation platform, a live full-stack app, and the infrastructure they run on. Real commit history, real CI, real production.">
+<meta property="og:image" content="https://nunchimangchi.com/og-v2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Warren S. &middot; <a href="https://github.com/nunchimangchi-dev" target="_blank" rel="noopener">github.com/nunchimangchi-dev</a></p>
+    <h1>Building real, working software, in the open.</h1>
+    <p class="hero-sub">
+      A privacy automation platform, a live full-stack app I build and
+      operate end to end, and the dev environment they run on. All actively
+      developed, all with real commit history, CI, and production
+      deployments. Not one-off demos.
+    </p>
+  </header>
+
+  <section class="projects">
+
+    <article class="project-card">
+      <div class="project-head">
+        <h2>unbrokerrdd</h2>
+        <a class="project-link" href="https://github.com/nunchimangchi-dev/unbrokerrdd" target="_blank" rel="noopener">View on GitHub <span class="arrow">&rarr;</span></a>
+      </div>
+      <p class="project-tag">Go &middot; WebSocket agent &middot; privacy automation</p>
+      <p>
+        <span class="field-label">What it does:</span> A privacy automation
+        platform targeting 85 data brokers across six planned opt-out
+        strategy types. The first, the TruthFinder cascade, is fully
+        operational end to end: one form submission covers 7 affiliated
+        broker properties, and Claude's vision capability confirms the
+        opt-out from a post-submit screenshot. Go backend with a WebSocket
+        agent and a real-time operational dashboard.
+      </p>
+      <p>
+        <span class="field-label">The real decision:</span> Strategy 1
+        shipped first on purpose. Highest coverage for the effort, and a
+        way to validate the whole pattern (the screenshot-confirmation
+        loop, the QA gates, the SQLite-backed state machine) before
+        committing to the other five strategy types.
+      </p>
+      <p>
+        <span class="field-label">Current state:</span> First strategy live
+        and tested against the real site. The other five are scoped and
+        registry-seeded, not started, and the README says so directly. The
+        dashboard sits behind Cloudflare Access identity rather than a
+        second login, gating who can run a batch versus only review one.
+        Built and run solo. Currently exploring product-market fit.
+      </p>
+    </article>
+
+    <article class="project-card">
+      <div class="project-head">
+        <h2>droppdd</h2>
+        <a class="project-link" href="https://github.com/nunchimangchi-dev/droppdd" target="_blank" rel="noopener">View on GitHub <span class="arrow">&rarr;</span></a>
+      </div>
+      <p class="project-tag">Next.js &middot; Prisma &middot; Auth.js &middot; self-hosted</p>
+      <p>
+        <span class="field-label">What it does:</span> A live, invite-only
+        beta fitness accountability app (Next.js, Prisma, Auth.js) that I
+        build and operate with full infrastructure ownership: a
+        network-segmented LXC host, a Cloudflare Tunnel with zero inbound
+        port-forwarding, and a separate staging environment. Google OAuth
+        and CI/CD on a self-hosted production deployment.
+      </p>
+      <p>
+        <span class="field-label">The real decision:</span> A documented,
+        reversed access-control decision. I added Cloudflare Access in
+        front of the app, then removed it once app-level auth proved
+        sufficient, verified live rather than assumed. Separately, building
+        the wagers feature surfaced a data-scoping bug in tables that had
+        no per-user isolation, caught by checking the real database instead
+        of trusting a clean build.
+      </p>
+      <p>
+        <span class="field-label">Current state:</span> Real Google OAuth
+        with an allowlist gate, CI on every PR, production deployment behind
+        the Cloudflare Tunnel with a separate staging environment. A
+        GDPR/CCPA-style data export and deletion flow backs an authored
+        Privacy Policy. Actively developed.
+      </p>
+    </article>
+
+    <article class="project-card supporting">
+      <div class="project-head">
+        <h2>skyrise</h2>
+      </div>
+      <p class="project-tag">chezmoi &middot; fish &middot; tmux &middot; infrastructure</p>
+      <p>
+        <span class="field-label">Supporting project.</span> The repeatable
+        dev-environment bootstrap the two projects above are built and
+        deployed on: git/GitHub identity, tmux, fish, Bitwarden, and
+        chezmoi-managed dotfiles, applied identically across a Linux server
+        and a MacBook from one source of truth. chezmoi specifically
+        because it reconciles real Linux/macOS differences from one config
+        rather than maintaining two.
+      </p>
+    </article>
+
+  </section>
+
+  <section class="ai-section">
+    <h2>How I work</h2>
+    <p>
+      I scope the approach and the data model, review before code gets
+      written, and verify after: run it, click through it, read the
+      database directly. A green build is not proof it works.
+    </p>
+    <p>
+      The wagers data-scoping bug on droppdd (above) is why. It only
+      surfaced when the tables were used the way they were meant to be.
+      Code is cheap to produce now. The judgment about what's actually
+      correct, and the calls on data-model and security tradeoffs, are the
+      work.
+    </p>
+  </section>
+
+  <footer class="site-footer">
+    <p>Real commit history, real CI, real code. <a href="https://github.com/nunchimangchi-dev" target="_blank" rel="noopener">github.com/nunchimangchi-dev</a></p>
+  </footer>
+
+</div>
+</body>
+</html>

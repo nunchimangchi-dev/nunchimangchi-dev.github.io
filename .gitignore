@@ -1,0 +1,10 @@
+# env files (never commit secrets)
+.env*
+.gemini/
+
+# misc
+.DS_Store
+
+# Internal working notes — never published. These were served live on the
+# public site until 2026-09-23; see private/README.md.
+/private/
