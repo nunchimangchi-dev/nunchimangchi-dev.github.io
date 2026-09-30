@@ -47,30 +47,25 @@
         <h2>unbrokerrdd</h2>
         <a class="project-link" href="https://github.com/nunchimangchi-dev/unbrokerrdd" target="_blank" rel="noopener">View on GitHub <span class="arrow">&rarr;</span></a>
       </div>
-      <p class="project-tag">Go &middot; WebSocket agent &middot; privacy automation</p>
+      <p class="project-tag">Go &middot; SQLite &middot; Claude vision &middot; privacy automation</p>
       <p>
-        <span class="field-label">What it does:</span> A privacy automation
-        platform targeting 85 data brokers across six planned opt-out
-        strategy types. The first, the TruthFinder cascade, is fully
-        operational end to end: one form submission covers 7 affiliated
-        broker properties, and Claude's vision capability confirms the
-        opt-out from a post-submit screenshot. Go backend with a WebSocket
-        agent and a real-time operational dashboard.
+        <span class="field-label">What it does:</span> Started as a simple
+        attempt to remove my own data from data brokers. Building the tool
+        showed how much effort that takes: sites that block automation, dead
+        or seized domains, and confirmation emails that say nothing about
+        whether anything was removed.
       </p>
       <p>
-        <span class="field-label">The real decision:</span> Strategy 1
-        shipped first on purpose. Highest coverage for the effort, and a
-        way to validate the whole pattern (the screenshot-confirmation
-        loop, the QA gates, the SQLite-backed state machine) before
-        committing to the other five strategy types.
+        <span class="field-label">The real decision:</span> The tool
+        deliberately does not defeat CAPTCHAs, so blocked sites are handed
+        to a human and recorded as such.
       </p>
       <p>
-        <span class="field-label">Current state:</span> First strategy live
-        and tested against the real site. The other five are scoped and
-        registry-seeded, not started, and the README says so directly. The
-        dashboard sits behind Cloudflare Access identity rather than a
-        second login, gating who can run a batch versus only review one.
-        Built and run solo. Currently exploring product-market fit.
+        <span class="field-label">Current state:</span> It became a
+        documented record of how impractical the process is, in one
+        person's experience. Two of six strategies are built, one is retired
+        on evidence, and the rest are planned. Go, SQLite, Claude vision,
+        real-time dashboard. Built solo.
       </p>
     </article>
 
